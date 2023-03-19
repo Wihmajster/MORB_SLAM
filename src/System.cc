@@ -22,7 +22,6 @@
 #include "System.h"
 
 #include <openssl/md5.h>
-#include <pangolin/pangolin.h>
 
 #include "ImprovedTypes.hpp"
 #include <boost/archive/binary_iarchive.hpp>

@@ -42,7 +42,6 @@ Map::Map()
       mbIMU_BA1(false),
       mbIMU_BA2(false) {
   mnId = nNextId++;
-  mThumbnail = static_cast<GLubyte*>(NULL);
 }
 
 Map::Map(int initKFid)
@@ -61,7 +60,6 @@ Map::Map(int initKFid)
       mbIMU_BA1(false),
       mbIMU_BA2(false) {
   mnId = nNextId++;
-  mThumbnail = static_cast<GLubyte*>(NULL);
 }
 
 Map::~Map() {
@@ -71,8 +69,6 @@ Map::~Map() {
   // TODO: erase all keyframes from memory
   mspKeyFrames.clear();
 
-  if (mThumbnail) delete mThumbnail;
-  mThumbnail = static_cast<GLubyte*>(NULL);
 
   mvpReferenceMapPoints.clear();
   mvpKeyFrameOrigins.clear();

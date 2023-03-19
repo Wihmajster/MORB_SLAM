@@ -34,9 +34,6 @@ This is a modified version of [Sophus](https://github.com/strasdat/Sophus). [MIT
 
 #####Library dependencies 
 
-* **Pangolin (visualization and user interface)**.
-[MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
 * **OpenCV**.
 BSD license.
 

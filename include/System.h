@@ -68,7 +68,6 @@ public:
     }
 };
 
-class Viewer;
 class Atlas;
 class Tracking;
 class LocalMapping;
@@ -177,7 +176,6 @@ public:
     void InsertTrackTime(double& time);
 #endif
 
-    friend Viewer;
 private:
 
     void SaveAtlas(int type);
