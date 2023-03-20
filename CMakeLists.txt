@@ -79,7 +79,7 @@ target_link_libraries(
   ${OpenCV_LIBS}
   ${EIGEN3_LIBS}
   DBoW2
-  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+  g2o
   -lboost_serialization
   -lcrypto)
 
