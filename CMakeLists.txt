@@ -1,37 +1,20 @@
-cmake_minimum_required(VERSION 3.0)
-cmake_policy(SET CMP0048 NEW)
+cmake_minimum_required(VERSION 3.16.3)
 project(
   MORB_SLAM
   VERSION 1.0
   LANGUAGES CXX)
 
-message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
-
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall   -O3")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall   -O3")
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -march=native")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -march=native")
-
-# Set compiler standard to C++17
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7) # required for eigen
-    message(FATAL_ERROR "Insufficient gcc version must be at least 7")
-  endif()
+# Release by default Turn on Debug with "-DCMAKE_BUILD_TYPE=Debug"
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
-
-find_package(OpenCV 4.2)
-if(NOT OpenCV_FOUND)
-  message(FATAL_ERROR "OpenCV > 4.2 not found.")
-endif()
-
-message(STATUS "OPENCV VERSION:")
-message(STATUS ${OpenCV_VERSION})
-
+find_package(OpenCV 4.2 REQUIRED)
 find_package(Eigen3 3.1.0 REQUIRED)
+
+add_subdirectory(Thirdparty/g2o)
+add_subdirectory(Thirdparty/DBoW2)
+add_subdirectory(Thirdparty/Sophus)
 
 add_library(
   ${PROJECT_NAME} SHARED
@@ -61,9 +44,6 @@ add_library(
   src/Config.cc
   src/Settings.cc)
 
-add_subdirectory(Thirdparty/g2o)
-add_subdirectory(Thirdparty/DBoW2)
-
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC $<INSTALL_INTERFACE:include>
@@ -82,6 +62,28 @@ target_link_libraries(
   g2o
   -lboost_serialization
   -lcrypto)
+
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
+
+if(CMAKE_BUILD_TYPE EQUAL "Release" OR CMAKE_BUILD_TYPE EQUAL "RelWithDebInfo")
+  target_compile_options(
+    orb_slam3
+    PRIVATE -O3
+    PUBLIC -march=native)
+endif()
+
+add_custom_target(vocabulary ALL)
+add_custom_command(
+  TARGET vocabulary
+  PRE_BUILD
+  COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_BINARY_DIR}/ORBvoc.txt.tar.gz
+  COMMAND ${CMAKE_COMMAND} -E tar xf
+          ${PROJECT_SOURCE_DIR}/Vocabulary/ORBvoc.txt.tar.gz
+  WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+  DEPENDS ${PROJECT_SOURCE_DIR}/Vocabulary/ORBvoc.txt.tar.gz
+  COMMENT "Unpacking ORBvoc.txt.tar.gz"
+  VERBATIM)
+add_dependencies(${PROJECT_NAME} vocabulary)
 
 # include(GNUInstallDirs) set(INSTALL_CONFIGDIR
 # ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}) install( TARGETS
