@@ -21,7 +21,7 @@ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   endif()
 endif()
 
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
+# list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
 find_package(OpenCV 4.2)
 if(NOT OpenCV_FOUND)
@@ -69,7 +69,7 @@ target_include_directories(
   PUBLIC $<INSTALL_INTERFACE:include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/CameraModels>
-         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/DBoW2>
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/DBoW2/include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/Sophus>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/g2o>
          $<BUILD_INTERFACE:${EIGEN3_INCLUDE_DIRS}>)
@@ -78,51 +78,39 @@ target_link_libraries(
   ${PROJECT_NAME}
   ${OpenCV_LIBS}
   ${EIGEN3_LIBS}
-  ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
+  DBoW2
   ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
   -lboost_serialization
   -lcrypto)
 
-include(GNUInstallDirs)
-set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-install(
-  TARGETS ${PROJECT_NAME}
-  EXPORT ${PROJECT_NAME}-targets
-  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
-install(
-  DIRECTORY ${PROJECT_SOURCE_DIR}
-            ${PROJECT_SOURCE_DIR}/include
-            ${PROJECT_SOURCE_DIR}/include/CameraModels
-            ${PROJECT_SOURCE_DIR}/Thirdparty/Sophus
-            ${EIGEN3_INCLUDE_DIR}
-            ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/DBoW2
-  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+# include(GNUInstallDirs) set(INSTALL_CONFIGDIR
+# ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}) install( TARGETS
+# ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-targets LIBRARY DESTINATION
+# ${CMAKE_INSTALL_LIBDIR} ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}) install(
+# DIRECTORY ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/include
+# ${PROJECT_SOURCE_DIR}/include/CameraModels
+# ${PROJECT_SOURCE_DIR}/Thirdparty/Sophus ${EIGEN3_INCLUDE_DIR}
+# ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/DBoW2 DESTINATION
+# ${CMAKE_INSTALL_INCLUDEDIR})
 
-install(
-  EXPORT ${PROJECT_NAME}-targets
-  FILE ${PROJECT_NAME}Targets.cmake
-  NAMESPACE ${PROJECT_NAME}::
-  DESTINATION ${INSTALL_CONFIGDIR})
+# install( EXPORT ${PROJECT_NAME}-targets FILE ${PROJECT_NAME}Targets.cmake
+# NAMESPACE ${PROJECT_NAME}:: DESTINATION ${INSTALL_CONFIGDIR})
 
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-  ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-  VERSION ${PROJECT_VERSION}
-  COMPATIBILITY AnyNewerVersion)
+# include(CMakePackageConfigHelpers) write_basic_package_version_file(
+# ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake VERSION
+# ${PROJECT_VERSION} COMPATIBILITY AnyNewerVersion)
 
-configure_package_config_file(
-  ${CMAKE_CURRENT_LIST_DIR}/cmake/${PROJECT_NAME}Config.cmake.in
-  ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-  INSTALL_DESTINATION ${INSTALL_CONFIGDIR})
+# configure_package_config_file(
+# ${CMAKE_CURRENT_LIST_DIR}/cmake/${PROJECT_NAME}Config.cmake.in
+# ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake INSTALL_DESTINATION
+# ${INSTALL_CONFIGDIR})
 
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
-              ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
-        DESTINATION ${INSTALL_CONFIGDIR})
+# install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
+# ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake DESTINATION
+# ${INSTALL_CONFIGDIR})
 
-export(
-  EXPORT ${PROJECT_NAME}-targets
-  FILE ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake
-  NAMESPACE ${PROJECT_NAME}::)
+# export( EXPORT ${PROJECT_NAME}-targets FILE
+# ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake NAMESPACE
+# ${PROJECT_NAME}::)
 
-export(PACKAGE ${PROJECT_NAME})
+# export(PACKAGE ${PROJECT_NAME})

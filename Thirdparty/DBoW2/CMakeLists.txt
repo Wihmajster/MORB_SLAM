@@ -1,54 +1,27 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.16.3)
 project(DBoW2)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-# Set compiler standard to C++17
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  if(CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7) # required for eigen
-    message(FATAL_ERROR "Insufficient gcc version must be at least 7")
-  endif()
-endif()
+find_package(OpenCV 4.2 QUIET)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -Wall  -O3 -march=native ")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall  -O3 -march=native")
+add_library(
+  ${PROJECT_NAME} SHARED
+  # DBoW2
+  src/DBoW2/BowVector.cpp
+  src/DBoW2/FORB.cpp
+  src/DBoW2/FeatureVector.cpp
+  src/DBoW2/ScoringObject.cpp
+  # DUtils
+  src/DUtils/Random.cpp
+  src/DUtils/Timestamp.cpp)
 
-set(HDRS_DBOW2
-  DBoW2/BowVector.h
-  DBoW2/FORB.h 
-  DBoW2/FClass.h       
-  DBoW2/FeatureVector.h
-  DBoW2/ScoringObject.h   
-  DBoW2/TemplatedVocabulary.h)
-set(SRCS_DBOW2
-  DBoW2/BowVector.cpp
-  DBoW2/FORB.cpp      
-  DBoW2/FeatureVector.cpp
-  DBoW2/ScoringObject.cpp)
+target_include_directories(${PROJECT_NAME} PUBLIC include
+                                                  ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${OpenCV_LIBS})
 
-set(HDRS_DUTILS
-  DUtils/Random.h
-  DUtils/Timestamp.h)
-set(SRCS_DUTILS
-  DUtils/Random.cpp
-  DUtils/Timestamp.cpp)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 14)
 
-
-find_package(OpenCV 4 QUIET)
-if(NOT OpenCV_FOUND)
-   find_package(OpenCV 3.0 QUIET)
-   if(NOT OpenCV_FOUND)
-      message(FATAL_ERROR "OpenCV > 3.0 not found.")
-   endif()
-endif()
-
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-
-include_directories(${OpenCV_INCLUDE_DIRS})
-add_library(DBoW2 SHARED ${SRCS_DBOW2} ${SRCS_DUTILS})
-target_link_libraries(DBoW2 ${OpenCV_LIBS})
-
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -O3 -march=native)
