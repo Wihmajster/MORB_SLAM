@@ -9,15 +9,34 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+find_package(catkin REQUIRED)
 find_package(OpenCV 4.2 REQUIRED)
 find_package(Eigen3 3.1.0 REQUIRED)
+
+catkin_package(
+  INCLUDE_DIRS
+  include
+  include/MORB_SLAM
+  include/MORB_SLAM/CameraModels
+  Thirdparty/DBoW2
+  Thirdparty/g2o
+  Thirdparty/Sophus
+  LIBRARIES
+  ${PROJECT_NAME}
+  DBoW2
+  g2o
+  CATKIN_DEPENDS
+  roscpp
+  DEPENDS
+  EIGEN3
+  OpenCV)
 
 add_subdirectory(Thirdparty/g2o)
 add_subdirectory(Thirdparty/DBoW2)
 add_subdirectory(Thirdparty/Sophus)
 
 add_library(
-  ${PROJECT_NAME} SHARED
+  ${PROJECT_NAME} 
   src/System.cc
   src/Tracking.cc
   src/LocalMapping.cc
@@ -48,11 +67,13 @@ target_include_directories(
   ${PROJECT_NAME}
   PUBLIC $<INSTALL_INTERFACE:include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/CameraModels>
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/MORB_SLAM>
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/MORB_SLAM/CameraModels>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/DBoW2/include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/Sophus>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/g2o>
-         $<BUILD_INTERFACE:${EIGEN3_INCLUDE_DIRS}>)
+         $<BUILD_INTERFACE:${EIGEN3_INCLUDE_DIRS}>
+        ${catkin_INCLUDE_DIRS})
 
 target_link_libraries(
   ${PROJECT_NAME}
