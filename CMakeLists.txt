@@ -9,7 +9,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS roscpp)
 find_package(OpenCV 4.2 REQUIRED)
 find_package(Eigen3 3.1.0 REQUIRED)
 
