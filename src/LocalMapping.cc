@@ -19,16 +19,16 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "LocalMapping.h"
+#include "MORB_SLAM/LocalMapping.h"
 
 #include <chrono>
 #include <mutex>
 
-#include "Converter.h"
-#include "GeometricTools.h"
-#include "LoopClosing.h"
-#include "ORBmatcher.h"
-#include "Optimizer.h"
+#include "MORB_SLAM/Converter.h"
+#include "MORB_SLAM/GeometricTools.h"
+#include "MORB_SLAM/LoopClosing.h"
+#include "MORB_SLAM/ORBmatcher.h"
+#include "MORB_SLAM/Optimizer.h"
 
 namespace ORB_SLAM3 {
 

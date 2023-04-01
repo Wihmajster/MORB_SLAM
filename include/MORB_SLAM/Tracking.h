@@ -26,18 +26,18 @@
 #include <opencv2/features2d/features2d.hpp>
 #include <unordered_set>
 
-#include "Atlas.h"
-#include "Frame.h"
-#include "GeometricCamera.h"
-#include "ImuTypes.h"
-#include "KeyFrameDatabase.h"
-#include "LocalMapping.h"
-#include "LoopClosing.h"
-#include "ORBVocabulary.h"
-#include "ORBextractor.h"
-#include "Settings.h"
-#include "System.h"
-#include "ImprovedTypes.hpp"
+#include "MORB_SLAM/CameraModels/GeometricCamera.h"
+#include "MORB_SLAM/Atlas.h"
+#include "MORB_SLAM/Frame.h"
+#include "MORB_SLAM/ImuTypes.h"
+#include "MORB_SLAM/KeyFrameDatabase.h"
+#include "MORB_SLAM/LocalMapping.h"
+#include "MORB_SLAM/LoopClosing.h"
+#include "MORB_SLAM/ORBVocabulary.h"
+#include "MORB_SLAM/ORBextractor.h"
+#include "MORB_SLAM/Settings.h"
+#include "MORB_SLAM/System.h"
+#include "MORB_SLAM/ImprovedTypes.hpp"
 
 namespace ORB_SLAM3 {
 

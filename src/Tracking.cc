@@ -19,21 +19,21 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Tracking.h"
+#include "MORB_SLAM/Tracking.h"
 
-#include "ImprovedTypes.hpp"
 #include <chrono>
 #include <iostream>
 #include <mutex>
 
-#include "Converter.h"
-#include "G2oTypes.h"
-#include "GeometricTools.h"
-#include "KannalaBrandt8.h"
-#include "MLPnPsolver.h"
-#include "ORBmatcher.h"
-#include "Optimizer.h"
-#include "Pinhole.h"
+#include "MORB_SLAM/CameraModels/KannalaBrandt8.h"
+#include "MORB_SLAM/CameraModels/Pinhole.h"
+#include "MORB_SLAM/Converter.h"
+#include "MORB_SLAM/G2oTypes.h"
+#include "MORB_SLAM/GeometricTools.h"
+#include "MORB_SLAM/ImprovedTypes.hpp"
+#include "MORB_SLAM/MLPnPsolver.h"
+#include "MORB_SLAM/ORBmatcher.h"
+#include "MORB_SLAM/Optimizer.h"
 
 using namespace std;
 

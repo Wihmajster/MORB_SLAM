@@ -19,7 +19,7 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Map.h"
+#include "MORB_SLAM/Map.h"
 
 #include <mutex>
 

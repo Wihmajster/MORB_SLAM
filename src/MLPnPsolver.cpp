@@ -46,7 +46,7 @@
 * SUCH DAMAGE.                                                               *
 ******************************************************************************/
 
-#include "MLPnPsolver.h"
+#include "MORB_SLAM/MLPnPsolver.h"
 
 #include <Eigen/Sparse>
 

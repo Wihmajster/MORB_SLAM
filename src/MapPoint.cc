@@ -19,11 +19,11 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MapPoint.h"
+#include "MORB_SLAM/MapPoint.h"
 
 #include <mutex>
 
-#include "ORBmatcher.h"
+#include "MORB_SLAM/ORBmatcher.h"
 
 namespace ORB_SLAM3 {
 

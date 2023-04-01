@@ -16,8 +16,6 @@ find_package(Eigen3 3.1.0 REQUIRED)
 catkin_package(
   INCLUDE_DIRS
   include
-  include/MORB_SLAM
-  include/MORB_SLAM/CameraModels
   Thirdparty/DBoW2
   Thirdparty/g2o
   Thirdparty/Sophus
@@ -67,8 +65,6 @@ target_include_directories(
   ${PROJECT_NAME}
   PUBLIC $<INSTALL_INTERFACE:include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/MORB_SLAM>
-         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/MORB_SLAM/CameraModels>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/DBoW2/include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/Sophus>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/g2o>

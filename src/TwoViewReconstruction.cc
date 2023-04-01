@@ -19,13 +19,13 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "TwoViewReconstruction.h"
+#include "MORB_SLAM/TwoViewReconstruction.h"
 
 #include <thread>
 
-#include "Converter.h"
 #include "DUtils/Random.h"
-#include "GeometricTools.h"
+#include "MORB_SLAM/Converter.h"
+#include "MORB_SLAM/GeometricTools.h"
 
 using namespace std;
 namespace ORB_SLAM3 {

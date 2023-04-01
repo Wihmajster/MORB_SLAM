@@ -25,7 +25,7 @@
 #include <assert.h>
 
 #include "GeometricCamera.h"
-#include "TwoViewReconstruction.h"
+#include "MORB_SLAM/TwoViewReconstruction.h"
 
 namespace ORB_SLAM3 {
 class Pinhole : public GeometricCamera {

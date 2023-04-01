@@ -19,17 +19,17 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "LoopClosing.h"
+#include "MORB_SLAM/LoopClosing.h"
 
 #include <mutex>
 #include <thread>
 
-#include "ImprovedTypes.hpp"
-#include "Converter.h"
-#include "G2oTypes.h"
-#include "ORBmatcher.h"
-#include "Optimizer.h"
-#include "Sim3Solver.h"
+#include "MORB_SLAM/ImprovedTypes.hpp"
+#include "MORB_SLAM/Converter.h"
+#include "MORB_SLAM/G2oTypes.h"
+#include "MORB_SLAM/ORBmatcher.h"
+#include "MORB_SLAM/Optimizer.h"
+#include "MORB_SLAM/Sim3Solver.h"
 
 namespace ORB_SLAM3 {
 

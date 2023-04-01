@@ -30,10 +30,10 @@
 #include <set>
 #include <vector>
 
-#include "Frame.h"
-#include "KeyFrame.h"
-#include "Map.h"
-#include "ORBVocabulary.h"
+#include "MORB_SLAM/Frame.h"
+#include "MORB_SLAM/KeyFrame.h"
+#include "MORB_SLAM/Map.h"
+#include "MORB_SLAM/ORBVocabulary.h"
 
 namespace ORB_SLAM3 {
 

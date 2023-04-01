@@ -29,14 +29,15 @@
 
 #include "DBoW2/BowVector.h"
 #include "DBoW2/FeatureVector.h"
-#include "Frame.h"
-#include "GeometricCamera.h"
-#include "ImuTypes.h"
-#include "KeyFrameDatabase.h"
-#include "MapPoint.h"
-#include "ORBVocabulary.h"
-#include "ORBextractor.h"
-#include "SerializationUtils.h"
+
+#include "MORB_SLAM/CameraModels/GeometricCamera.h"
+#include "MORB_SLAM/Frame.h"
+#include "MORB_SLAM/ImuTypes.h"
+#include "MORB_SLAM/KeyFrameDatabase.h"
+#include "MORB_SLAM/MapPoint.h"
+#include "MORB_SLAM/ORBVocabulary.h"
+#include "MORB_SLAM/ORBextractor.h"
+#include "MORB_SLAM/SerializationUtils.h"
 
 namespace ORB_SLAM3 {
 

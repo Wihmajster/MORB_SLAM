@@ -19,12 +19,12 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "KeyFrame.h"
+#include "MORB_SLAM/KeyFrame.h"
 
 #include <mutex>
 
-#include "Converter.h"
-#include "ImuTypes.h"
+#include "MORB_SLAM/Converter.h"
+#include "MORB_SLAM/ImuTypes.h"
 
 namespace ORB_SLAM3 {
 

@@ -26,9 +26,10 @@
 #include <opencv2/features2d/features2d.hpp>
 #include <vector>
 
-#include "Frame.h"
-#include "KeyFrame.h"
-#include "MapPoint.h"
+#include "MORB_SLAM/Frame.h"
+#include "MORB_SLAM/KeyFrame.h"
+#include "MORB_SLAM/MapPoint.h"
+
 #include "sophus/sim3.hpp"
 
 namespace ORB_SLAM3 {

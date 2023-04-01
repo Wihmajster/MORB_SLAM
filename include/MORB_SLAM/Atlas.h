@@ -26,12 +26,12 @@
 #include <mutex>
 #include <set>
 
-#include "GeometricCamera.h"
-#include "KannalaBrandt8.h"
-#include "KeyFrame.h"
-#include "Map.h"
-#include "MapPoint.h"
-#include "Pinhole.h"
+#include "MORB_SLAM/CameraModels/GeometricCamera.h"
+#include "MORB_SLAM/CameraModels/KannalaBrandt8.h"
+#include "MORB_SLAM/CameraModels/Pinhole.h"
+#include "MORB_SLAM/KeyFrame.h"
+#include "MORB_SLAM/Map.h"
+#include "MORB_SLAM/MapPoint.h"
 
 namespace ORB_SLAM3 {
 class Map;

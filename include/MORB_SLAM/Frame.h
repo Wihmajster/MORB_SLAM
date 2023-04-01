@@ -20,18 +20,18 @@
 #ifndef FRAME_H
 #define FRAME_H
 
-#include<vector>
+#include <vector>
 
 #include "DBoW2/BowVector.h"
 #include "DBoW2/FeatureVector.h"
 
 #include "sophus/geometry.hpp"
 
-#include "ImuTypes.h"
-#include "ORBVocabulary.h"
+#include "MORB_SLAM/ImuTypes.h"
+#include "MORB_SLAM/ORBVocabulary.h"
 
-#include "Converter.h"
-#include "Settings.h"
+#include "MORB_SLAM/Converter.h"
+#include "MORB_SLAM/Settings.h"
 
 #include <mutex>
 #include <opencv2/opencv.hpp>

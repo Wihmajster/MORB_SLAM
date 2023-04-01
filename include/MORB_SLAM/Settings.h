@@ -32,7 +32,7 @@
 
 #include <string>
 
-#include "CameraModels/GeometricCamera.h"
+#include "MORB_SLAM/CameraModels/GeometricCamera.h"
 
 namespace ORB_SLAM3 {
 

@@ -24,11 +24,12 @@
 
 #include <math.h>
 
-#include "Frame.h"
-#include "KeyFrame.h"
-#include "LoopClosing.h"
-#include "Map.h"
-#include "MapPoint.h"
+#include "MORB_SLAM/Frame.h"
+#include "MORB_SLAM/KeyFrame.h"
+#include "MORB_SLAM/LoopClosing.h"
+#include "MORB_SLAM/Map.h"
+#include "MORB_SLAM/MapPoint.h"
+
 #include "g2o/core/block_solver.h"
 #include "g2o/core/optimization_algorithm_gauss_newton.h"
 #include "g2o/core/optimization_algorithm_levenberg.h"

@@ -19,7 +19,7 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "Config.h"
+#include "MORB_SLAM/Config.h"
 
 namespace ORB_SLAM3 {
 

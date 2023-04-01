@@ -19,14 +19,13 @@
 
 #pragma once
 
-#include "ImprovedTypes.hpp"
-#include "KeyFrame.h"
-#include "LocalMapping.h"
-#include "Atlas.h"
-#include "ORBVocabulary.h"
-#include "Tracking.h"
-
-#include "KeyFrameDatabase.h"
+#include "MORB_SLAM/ImprovedTypes.hpp"
+#include "MORB_SLAM/KeyFrame.h"
+#include "MORB_SLAM/LocalMapping.h"
+#include "MORB_SLAM/Atlas.h"
+#include "MORB_SLAM/ORBVocabulary.h"
+#include "MORB_SLAM/Tracking.h"
+#include "MORB_SLAM/KeyFrameDatabase.h"
 
 #include <boost/algorithm/string.hpp>
 #include <thread>
