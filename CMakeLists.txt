@@ -1,3 +1,4 @@
+#catkin_lint: ignore subproject
 cmake_minimum_required(VERSION 3.16.3)
 project(
   MORB_SLAM
@@ -16,7 +17,7 @@ find_package(Eigen3 3.1.0 REQUIRED)
 catkin_package(
   INCLUDE_DIRS
   include
-  Thirdparty/DBoW2
+  Thirdparty/DBoW2/include
   Thirdparty/g2o
   Thirdparty/Sophus
   LIBRARIES
@@ -34,33 +35,32 @@ add_subdirectory(Thirdparty/DBoW2)
 add_subdirectory(Thirdparty/Sophus)
 
 add_library(
-  ${PROJECT_NAME} 
-  src/System.cc
-  src/Tracking.cc
+  ${PROJECT_NAME}
+  src/Atlas.cc
+  src/CameraModels/KannalaBrandt8.cpp
+  src/CameraModels/Pinhole.cpp
+  src/Config.cc
+  src/Converter.cc
+  src/Frame.cc
+  src/G2oTypes.cc
+  src/GeometricTools.cc
+  src/ImuTypes.cc
+  src/KeyFrame.cc
+  src/KeyFrameDatabase.cc
   src/LocalMapping.cc
   src/LoopClosing.cc
+  src/Map.cc
+  src/MapPoint.cc
+  src/MLPnPsolver.cpp
+  src/OptimizableTypes.cpp
+  src/Optimizer.cc
   src/ORBextractor.cc
   src/ORBmatcher.cc
-  src/Converter.cc
-  src/MapPoint.cc
-  src/KeyFrame.cc
-  src/Atlas.cc
-  src/Map.cc
-  src/Optimizer.cc
-  src/Frame.cc
-  src/KeyFrameDatabase.cc
+  src/Settings.cc
   src/Sim3Solver.cc
-  src/ImuTypes.cc
-  src/G2oTypes.cc
-  src/CameraModels/Pinhole.cpp
-  src/CameraModels/KannalaBrandt8.cpp
-  src/OptimizableTypes.cpp
-  src/MLPnPsolver.cpp
-  src/GeometricTools.cc
-  src/TwoViewReconstruction.cc
-  src/Config.cc
-  src/Settings.cc)
-
+  src/System.cc
+  src/Tracking.cc
+  src/TwoViewReconstruction.cc)
 target_include_directories(
   ${PROJECT_NAME}
   PUBLIC $<INSTALL_INTERFACE:include>
@@ -68,8 +68,7 @@ target_include_directories(
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/DBoW2/include>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/Sophus>
          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/g2o>
-         $<BUILD_INTERFACE:${EIGEN3_INCLUDE_DIRS}>
-        ${catkin_INCLUDE_DIRS})
+  PRIVATE $<BUILD_INTERFACE:${EIGEN3_INCLUDE_DIRS}> ${catkin_INCLUDE_DIRS})
 
 target_link_libraries(
   ${PROJECT_NAME}
@@ -94,8 +93,7 @@ add_custom_command(
   TARGET vocabulary
   PRE_BUILD
   COMMAND ${CMAKE_COMMAND} -E remove ${CMAKE_BINARY_DIR}/ORBvoc.txt.tar.gz
-  COMMAND ${CMAKE_COMMAND} -E tar xf
-          ${PROJECT_SOURCE_DIR}/Vocabulary/ORBvoc.txt.tar.gz
+  COMMAND ${CMAKE_COMMAND} -E tar xf ${PROJECT_SOURCE_DIR}/Vocabulary/ORBvoc.txt.tar.gz
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
   DEPENDS ${PROJECT_SOURCE_DIR}/Vocabulary/ORBvoc.txt.tar.gz
   COMMENT "Unpacking ORBvoc.txt.tar.gz"
