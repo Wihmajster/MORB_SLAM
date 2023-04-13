@@ -1,7 +1,7 @@
 #catkin_lint: ignore subproject
 cmake_minimum_required(VERSION 3.16.3)
 project(
-  MORB_SLAM
+  morb_slam
   VERSION 1.0
   LANGUAGES CXX)
 

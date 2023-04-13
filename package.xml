@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>MORB_SLAM</name>
+  <name>morb_slam</name>
   <version>1.0.0</version>
   <description>MORB-SLAM: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM</description>
 
