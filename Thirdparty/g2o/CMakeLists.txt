@@ -23,7 +23,7 @@ set(G2O_USE_OPENMP
 find_package(Eigen3 3.1.0 REQUIRED)
 
 # Generate config.h
-configure_file(config.h.in ${g2o_SOURCE_DIR}/config.h)
+configure_file(config.h.in ${CMAKE_CURRENT_SOURCE_DIR}/config.h)
 
 # Include the subdirectories
 add_library(
@@ -64,8 +64,14 @@ add_library(
 
 # Set up the top-level include directories
 target_include_directories(
-  ${PROJECT_NAME} PUBLIC ${g2o_SOURCE_DIR}/core ${g2o_SOURCE_DIR}/types
-                         ${g2o_SOURCE_DIR}/stuff ${EIGEN3_INCLUDE_DIR})
+  ${PROJECT_NAME}
+  PUBLIC ${EIGEN3_INCLUDE_DIR}
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/core>
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/types>
+         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/stuff>
+         $<INSTALL_INTERFACE:core>
+         $<INSTALL_INTERFACE:types>
+         $<INSTALL_INTERFACE:stuff>)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
 
@@ -78,11 +84,16 @@ target_compile_options(
 if(OPENMP_FOUND AND G2O_USE_OPENMP)
   set(G2O_OPENMP 1)
   target_compile_options(
-    ${PROJECT_NAME}
-    PRIVATE
-      "$<$<COMPILE_LANGUAGE:CXX>:-DEIGEN_DONT_PARALLELIZE;${OpenMP_CXX_FLAGS}>"
-      "$<$<COMPILE_LANGUAGE:C>:${OpenMP_C_FLAGS}>")
+    ${PROJECT_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-DEIGEN_DONT_PARALLELIZE;${OpenMP_CXX_FLAGS}>"
+                            "$<$<COMPILE_LANGUAGE:C>:${OpenMP_C_FLAGS}>")
   message(STATUS "Compiling with OpenMP support")
 endif(OPENMP_FOUND AND G2O_USE_OPENMP)
 
 target_compile_options(${PROJECT_NAME} PUBLIC -march=native)
+
+install(
+  TARGETS g2o
+  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+  RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
+install(DIRECTORY ./ DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION})
