@@ -31,9 +31,9 @@
 #include <Eigen/Geometry>
 #include <Eigen/Dense>
 
-#include "MORB_SLAM/Frame.h"
-#include "MORB_SLAM/KeyFrame.h"
-#include "MORB_SLAM/Converter.h"
+#include "morb_slam_ros/Frame.h"
+#include "morb_slam_ros/KeyFrame.h"
+#include "morb_slam_ros/Converter.h"
 
 #include <math.h>
 

@@ -30,14 +30,14 @@
 #include "DBoW2/BowVector.h"
 #include "DBoW2/FeatureVector.h"
 
-#include "MORB_SLAM/CameraModels/GeometricCamera.h"
-#include "MORB_SLAM/Frame.h"
-#include "MORB_SLAM/ImuTypes.h"
-#include "MORB_SLAM/KeyFrameDatabase.h"
-#include "MORB_SLAM/MapPoint.h"
-#include "MORB_SLAM/ORBVocabulary.h"
-#include "MORB_SLAM/ORBextractor.h"
-#include "MORB_SLAM/SerializationUtils.h"
+#include "morb_slam_ros/CameraModels/GeometricCamera.h"
+#include "morb_slam_ros/Frame.h"
+#include "morb_slam_ros/ImuTypes.h"
+#include "morb_slam_ros/KeyFrameDatabase.h"
+#include "morb_slam_ros/MapPoint.h"
+#include "morb_slam_ros/ORBVocabulary.h"
+#include "morb_slam_ros/ORBextractor.h"
+#include "morb_slam_ros/SerializationUtils.h"
 
 namespace ORB_SLAM3 {
 

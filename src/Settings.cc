@@ -19,17 +19,17 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/Settings.h"
+#include "morb_slam_ros/Settings.h"
 
-#include "MORB_SLAM/ImprovedTypes.hpp"
+#include "morb_slam_ros/ImprovedTypes.hpp"
 
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/eigen.hpp>
 #include <opencv2/core/persistence.hpp>
 
-#include "MORB_SLAM/CameraModels/KannalaBrandt8.h"
-#include "MORB_SLAM/CameraModels/Pinhole.h"
+#include "morb_slam_ros/CameraModels/KannalaBrandt8.h"
+#include "morb_slam_ros/CameraModels/Pinhole.h"
 
 namespace ORB_SLAM3 {
 

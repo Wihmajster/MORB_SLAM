@@ -19,7 +19,7 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/CameraModels/KannalaBrandt8.h"
+#include "morb_slam_ros/CameraModels/KannalaBrandt8.h"
 
 #include <boost/serialization/export.hpp>
 

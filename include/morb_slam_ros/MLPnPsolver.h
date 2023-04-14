@@ -55,8 +55,8 @@
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
 
-#include "MORB_SLAM/Frame.h"
-#include "MORB_SLAM/MapPoint.h"
+#include "morb_slam_ros/Frame.h"
+#include "morb_slam_ros/MapPoint.h"
 
 namespace ORB_SLAM3 {
 class MLPnPsolver {

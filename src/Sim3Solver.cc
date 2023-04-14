@@ -19,15 +19,15 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/Sim3Solver.h"
+#include "morb_slam_ros/Sim3Solver.h"
 
 #include <cmath>
 #include <opencv2/core/core.hpp>
 #include <vector>
 
 #include "DUtils/Random.h"
-#include "MORB_SLAM/KeyFrame.h"
-#include "MORB_SLAM/ORBmatcher.h"
+#include "morb_slam_ros/KeyFrame.h"
+#include "morb_slam_ros/ORBmatcher.h"
 
 namespace ORB_SLAM3 {
 

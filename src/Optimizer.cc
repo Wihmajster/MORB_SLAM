@@ -19,7 +19,7 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/Optimizer.h"
+#include "morb_slam_ros/Optimizer.h"
 
 #include <Eigen/Dense>
 #include <Eigen/StdVector>
@@ -27,9 +27,9 @@
 #include <mutex>
 #include <unsupported/Eigen/MatrixFunctions>
 
-#include "MORB_SLAM/Converter.h"
-#include "MORB_SLAM/G2oTypes.h"
-#include "MORB_SLAM/OptimizableTypes.h"
+#include "morb_slam_ros/Converter.h"
+#include "morb_slam_ros/G2oTypes.h"
+#include "morb_slam_ros/OptimizableTypes.h"
 
 #include "g2o/core/block_solver.h"
 #include "g2o/core/optimization_algorithm_gauss_newton.h"

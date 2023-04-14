@@ -35,8 +35,8 @@
 #include <sophus/se3.hpp>
 #include <vector>
 
-#include "MORB_SLAM/Converter.h"
-#include "MORB_SLAM/GeometricTools.h"
+#include "morb_slam_ros/Converter.h"
+#include "morb_slam_ros/GeometricTools.h"
 
 namespace ORB_SLAM3 {
 class GeometricCamera {

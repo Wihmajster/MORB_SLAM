@@ -19,7 +19,7 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/Converter.h"
+#include "morb_slam_ros/Converter.h"
 
 namespace ORB_SLAM3 {
 

@@ -19,20 +19,20 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/Frame.h"
+#include "morb_slam_ros/Frame.h"
 
 #include <thread>
 
-#include "MORB_SLAM/CameraModels/GeometricCamera.h"
-#include "MORB_SLAM/CameraModels/KannalaBrandt8.h"
-#include "MORB_SLAM/CameraModels/Pinhole.h"
+#include "morb_slam_ros/CameraModels/GeometricCamera.h"
+#include "morb_slam_ros/CameraModels/KannalaBrandt8.h"
+#include "morb_slam_ros/CameraModels/Pinhole.h"
 
-#include "MORB_SLAM/Converter.h"
-#include "MORB_SLAM/G2oTypes.h"
-#include "MORB_SLAM/KeyFrame.h"
-#include "MORB_SLAM/MapPoint.h"
-#include "MORB_SLAM/ORBextractor.h"
-#include "MORB_SLAM/ORBmatcher.h"
+#include "morb_slam_ros/Converter.h"
+#include "morb_slam_ros/G2oTypes.h"
+#include "morb_slam_ros/KeyFrame.h"
+#include "morb_slam_ros/MapPoint.h"
+#include "morb_slam_ros/ORBextractor.h"
+#include "morb_slam_ros/ORBmatcher.h"
 
 namespace ORB_SLAM3 {
 

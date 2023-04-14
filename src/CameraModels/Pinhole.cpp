@@ -19,7 +19,7 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/CameraModels/Pinhole.h"
+#include "morb_slam_ros/CameraModels/Pinhole.h"
 
 #include <boost/serialization/export.hpp>
 

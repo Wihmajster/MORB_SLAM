@@ -19,13 +19,13 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/KeyFrameDatabase.h"
+#include "morb_slam_ros/KeyFrameDatabase.h"
 
 #include <mutex>
 
 #include "DBoW2/BowVector.h"
 
-#include "MORB_SLAM/KeyFrame.h"
+#include "morb_slam_ros/KeyFrame.h"
 
 using namespace std;
 

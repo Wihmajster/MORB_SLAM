@@ -22,7 +22,7 @@
 #ifndef ORB_SLAM3_OPTIMIZABLETYPES_H
 #define ORB_SLAM3_OPTIMIZABLETYPES_H
 
-#include "MORB_SLAM/CameraModels/GeometricCamera.h"
+#include "morb_slam_ros/CameraModels/GeometricCamera.h"
 
 #include <g2o/types/sim3.h>
 #include <g2o/types/types_six_dof_expmap.h>

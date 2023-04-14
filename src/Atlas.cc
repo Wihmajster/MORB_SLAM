@@ -19,11 +19,11 @@
  * ORB-SLAM3. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "MORB_SLAM/Atlas.h"
+#include "morb_slam_ros/Atlas.h"
 
-#include "MORB_SLAM/CameraModels/GeometricCamera.h"
-#include "MORB_SLAM/CameraModels/KannalaBrandt8.h"
-#include "MORB_SLAM/CameraModels/Pinhole.h"
+#include "morb_slam_ros/CameraModels/GeometricCamera.h"
+#include "morb_slam_ros/CameraModels/KannalaBrandt8.h"
+#include "morb_slam_ros/CameraModels/Pinhole.h"
 
 namespace ORB_SLAM3 {
 

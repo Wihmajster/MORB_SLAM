@@ -23,13 +23,13 @@
 
 #include <mutex>
 
-#include "MORB_SLAM/ImprovedTypes.hpp"
-#include "MORB_SLAM/Atlas.h"
-#include "MORB_SLAM/KeyFrame.h"
-#include "MORB_SLAM/KeyFrameDatabase.h"
-#include "MORB_SLAM/LoopClosing.h"
-#include "MORB_SLAM/Settings.h"
-#include "MORB_SLAM/Tracking.h"
+#include "morb_slam_ros/ImprovedTypes.hpp"
+#include "morb_slam_ros/Atlas.h"
+#include "morb_slam_ros/KeyFrame.h"
+#include "morb_slam_ros/KeyFrameDatabase.h"
+#include "morb_slam_ros/LoopClosing.h"
+#include "morb_slam_ros/Settings.h"
+#include "morb_slam_ros/Tracking.h"
 
 namespace ORB_SLAM3 {
 

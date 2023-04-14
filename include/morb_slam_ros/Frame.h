@@ -27,11 +27,11 @@
 
 #include "sophus/geometry.hpp"
 
-#include "MORB_SLAM/ImuTypes.h"
-#include "MORB_SLAM/ORBVocabulary.h"
+#include "morb_slam_ros/ImuTypes.h"
+#include "morb_slam_ros/ORBVocabulary.h"
 
-#include "MORB_SLAM/Converter.h"
-#include "MORB_SLAM/Settings.h"
+#include "morb_slam_ros/Converter.h"
+#include "morb_slam_ros/Settings.h"
 
 #include <mutex>
 #include <opencv2/opencv.hpp>

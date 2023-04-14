@@ -54,7 +54,7 @@
  *
  */
 
-#include "MORB_SLAM/ORBextractor.h"
+#include "morb_slam_ros/ORBextractor.h"
 
 #include <iostream>
 #include <opencv2/core/core.hpp>

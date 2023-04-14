@@ -20,11 +20,11 @@
 #ifndef MAPPOINT_H
 #define MAPPOINT_H
 
-#include "MORB_SLAM/KeyFrame.h"
-#include "MORB_SLAM/Frame.h"
-#include "MORB_SLAM/Map.h"
-#include "MORB_SLAM/Converter.h"
-#include "MORB_SLAM/SerializationUtils.h"
+#include "morb_slam_ros/KeyFrame.h"
+#include "morb_slam_ros/Frame.h"
+#include "morb_slam_ros/Map.h"
+#include "morb_slam_ros/Converter.h"
+#include "morb_slam_ros/SerializationUtils.h"
 
 #include <opencv2/core/core.hpp>
 #include <mutex>

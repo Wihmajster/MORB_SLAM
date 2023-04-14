@@ -27,15 +27,15 @@
 #include <thread>
 #include <opencv2/core/core.hpp>
 
-#include "MORB_SLAM/ImprovedTypes.hpp"
-#include "MORB_SLAM/Tracking.h"
-#include "MORB_SLAM/Atlas.h"
-#include "MORB_SLAM/LocalMapping.h"
-#include "MORB_SLAM/LoopClosing.h"
-#include "MORB_SLAM/KeyFrameDatabase.h"
-#include "MORB_SLAM/ORBVocabulary.h"
-#include "MORB_SLAM/ImuTypes.h"
-#include "MORB_SLAM/Settings.h"
+#include "morb_slam_ros/ImprovedTypes.hpp"
+#include "morb_slam_ros/Tracking.h"
+#include "morb_slam_ros/Atlas.h"
+#include "morb_slam_ros/LocalMapping.h"
+#include "morb_slam_ros/LoopClosing.h"
+#include "morb_slam_ros/KeyFrameDatabase.h"
+#include "morb_slam_ros/ORBVocabulary.h"
+#include "morb_slam_ros/ImuTypes.h"
+#include "morb_slam_ros/Settings.h"
 
 
 namespace ORB_SLAM3

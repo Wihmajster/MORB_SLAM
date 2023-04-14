@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>morb_slam</name>
+  <name>morb_slam_ros</name>
   <version>1.0.0</version>
   <description>MORB-SLAM: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM</description>
 
@@ -15,4 +15,13 @@
   <!-- g2o -->
   <depend>libceres-dev</depend>
   <depend>suitesparse</depend>
+  <!-- ros wrapper -->
+  <depend>rospy</depend>
+  <depend>std_msgs</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_transport</depend>
+  <depend>tf</depend>
+  <depend>sensor_msgs</depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
 </package>
