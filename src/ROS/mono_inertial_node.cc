@@ -1,6 +1,6 @@
 /**
 * 
-* Adapted from ORB-SLAM3: Examples/ROS/src/ros_mono_inertial.cc
+* Source: https://github.com/thien94/orb_slam3_ros_wrapper
 *
 */
 
@@ -44,13 +44,13 @@ int main(int argc, char **argv)
         ROS_WARN ("Arguments supplied via command line are ignored.");
     }
 
-    ros::NodeHandle node_handler;
+    ros::NodeHandle node_handler("~");
     std::string node_name = ros::this_node::getName();
     image_transport::ImageTransport image_transport(node_handler);
 
     std::string voc_file, settings_file;
-    node_handler.param<std::string>(node_name + "/voc_file", voc_file, "file_not_set");
-    node_handler.param<std::string>(node_name + "/settings_file", settings_file, "file_not_set");
+    node_handler.param<std::string>("voc_file", voc_file, "file_not_set");
+    node_handler.param<std::string>("settings_file", settings_file, "file_not_set");
 
     if (voc_file == "file_not_set" || settings_file == "file_not_set")
     {
@@ -59,11 +59,10 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    node_handler.param<std::string>("world_tf", world_frame_id, "map");
+    node_handler.param<std::string>("camera_tf", cam_frame_id, "camera");
     bool enable_pangolin;
-    node_handler.param<bool>(node_name + "/enable_pangolin", enable_pangolin, true);
-
-    node_handler.param<std::string>(node_name + "/world_frame_id", world_frame_id, "map");
-    node_handler.param<std::string>(node_name + "/cam_frame_id", cam_frame_id, "camera");
+    node_handler.param<bool>("enable_pangolin", enable_pangolin, true);
 
     // Create SLAM system. It initializes all system threads and gets ready to process frames.
     sensor_type = ORB_SLAM3::CameraType::IMU_MONOCULAR;
@@ -72,8 +71,8 @@ int main(int argc, char **argv)
     ImuGrabber imugb;
     ImageGrabber igb(&SLAM, &imugb);
 
-    ros::Subscriber sub_imu = node_handler.subscribe("/imu", 1000, &ImuGrabber::GrabImu, &imugb); 
-    ros::Subscriber sub_img0 = node_handler.subscribe("/camera/image_raw", 100, &ImageGrabber::GrabImage, &igb);
+    ros::Subscriber sub_imu = node_handler.subscribe("imu", 1000, &ImuGrabber::GrabImu, &imugb); 
+    ros::Subscriber sub_img0 = node_handler.subscribe("left/image_raw", 100, &ImageGrabber::GrabImage, &igb);
 
     setup_ros_publishers(node_handler, image_transport, sensor_type);
 
