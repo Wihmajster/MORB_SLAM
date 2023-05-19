@@ -175,8 +175,6 @@ Settings::Settings(const std::string& configFile, const int& sensor)
 
   readORB(fSettings);
   std::cout << "\t-Loaded ORB settings" << std::endl;
-  readViewer(fSettings);
-  std::cout << "\t-Loaded viewer settings" << std::endl;
   readLoadAndSave(fSettings);
   std::cout << "\t-Loaded Atlas settings" << std::endl;
   readOtherParameters(fSettings);
@@ -478,28 +476,6 @@ void Settings::readORB(cv::FileStorage& fSettings) {
   nLevels_ = readParameter<int>(fSettings, "ORBextractor.nLevels", found);
   initThFAST_ = readParameter<int>(fSettings, "ORBextractor.iniThFAST", found);
   minThFAST_ = readParameter<int>(fSettings, "ORBextractor.minThFAST", found);
-}
-
-void Settings::readViewer(cv::FileStorage& fSettings) {
-  bool found;
-
-  keyFrameSize_ = readParameter<float>(fSettings, "Viewer.KeyFrameSize", found);
-  keyFrameLineWidth_ =
-      readParameter<float>(fSettings, "Viewer.KeyFrameLineWidth", found);
-  graphLineWidth_ =
-      readParameter<float>(fSettings, "Viewer.GraphLineWidth", found);
-  pointSize_ = readParameter<float>(fSettings, "Viewer.PointSize", found);
-  cameraSize_ = readParameter<float>(fSettings, "Viewer.CameraSize", found);
-  cameraLineWidth_ =
-      readParameter<float>(fSettings, "Viewer.CameraLineWidth", found);
-  viewPointX_ = readParameter<float>(fSettings, "Viewer.ViewpointX", found);
-  viewPointY_ = readParameter<float>(fSettings, "Viewer.ViewpointY", found);
-  viewPointZ_ = readParameter<float>(fSettings, "Viewer.ViewpointZ", found);
-  viewPointF_ = readParameter<float>(fSettings, "Viewer.ViewpointF", found);
-  imageViewerScale_ =
-      readParameter<float>(fSettings, "Viewer.imageViewScale", found, false);
-
-  if (!found) imageViewerScale_ = 1.0f;
 }
 
 void Settings::readLoadAndSave(cv::FileStorage& fSettings) {

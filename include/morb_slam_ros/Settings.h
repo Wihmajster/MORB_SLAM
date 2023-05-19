@@ -106,17 +106,6 @@ class Settings {
   float minThFAST() const { return minThFAST_; }
   float scaleFactor() const { return scaleFactor_; }
 
-  float keyFrameSize() const { return keyFrameSize_; }
-  float keyFrameLineWidth() const { return keyFrameLineWidth_; }
-  float graphLineWidth() const { return graphLineWidth_; }
-  float pointSize() const { return pointSize_; }
-  float cameraSize() const { return cameraSize_; }
-  float cameraLineWidth() const { return cameraLineWidth_; }
-  float viewPointX() const { return viewPointX_; }
-  float viewPointY() const { return viewPointY_; }
-  float viewPointZ() const { return viewPointZ_; }
-  float viewPointF() const { return viewPointF_; }
-  float imageViewerScale() const { return imageViewerScale_; }
 
   const std::string &atlasLoadFile() const { return sLoadFrom_; }
   const std::string &atlasSaveFile() const { return sSaveto_; }
@@ -157,7 +146,6 @@ class Settings {
   void readIMU(cv::FileStorage& fSettings);
   void readRGBD(cv::FileStorage& fSettings);
   void readORB(cv::FileStorage& fSettings);
-  void readViewer(cv::FileStorage& fSettings);
   void readLoadAndSave(cv::FileStorage& fSettings);
   void readOtherParameters(cv::FileStorage& fSettings);
 
@@ -212,18 +200,6 @@ class Settings {
   float scaleFactor_;
   int nLevels_;
   int initThFAST_, minThFAST_;
-
-  /*
-   * Viewer stuff
-   */
-  float keyFrameSize_;
-  float keyFrameLineWidth_;
-  float graphLineWidth_;
-  float pointSize_;
-  float cameraSize_;
-  float cameraLineWidth_;
-  float viewPointX_, viewPointY_, viewPointZ_, viewPointF_;
-  float imageViewerScale_;
 
   /*
    * Save & load maps

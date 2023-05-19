@@ -86,7 +86,7 @@ public:
 
 public:
     
-    // Initialize the SLAM system. It launches the Local Mapping, Loop Closing and Viewer threads.
+    // Initialize the SLAM system. It launches the Local Mapping, Loop Closing and threads.
     System(const string &strVocFile, const string &strSettingsFile, const CameraType::eSensor sensor, const string &strSequence = std::string());
 
     // Proccess the given stereo frame. Images must be synchronized and rectified.
@@ -208,7 +208,7 @@ private:
     // a pose graph optimization and full bundle adjustment (in a new thread) afterwards.
     LoopClosing* mpLoopCloser;
 
-    // System threads: Local Mapping, Loop Closing, Viewer.
+    // System threads: Local Mapping, Loop Closing.
     // The Tracking thread "lives" in the main execution thread that creates the System object.
     std::thread* mptLocalMapping;
     std::thread* mptLoopClosing;

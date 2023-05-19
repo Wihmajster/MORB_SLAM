@@ -188,7 +188,6 @@ protected:
     // View of the map in aerial sight (for the AtlasViewer)
 
     bool mIsInUse;
-    bool mHasTumbnail;
     bool mbBad = false;
 
     bool mbIsInertial;
