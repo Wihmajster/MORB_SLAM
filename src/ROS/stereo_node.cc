@@ -97,8 +97,7 @@ void ImageGrabber::GrabStereo(const sensor_msgs::ImageConstPtr& msgLeft,const se
     Sophus::SE3f Twc = Tcw.inverse();
 
     ros::Time msg_time = cv_ptrLeft->header.stamp;
-
+    std::cout << mpSLAM -> GetTrackingState() << std::endl;
     publish_ros_camera_pose(Twc, msg_time);
-    publish_ros_tf_transform(Twc, world_frame_id, cam_frame_id, msg_time);
     publish_ros_tracked_mappoints(mpSLAM->GetTrackedMapPoints(), msg_time);
 }

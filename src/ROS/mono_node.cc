@@ -83,7 +83,6 @@ void ImageGrabber::GrabImage(const sensor_msgs::ImageConstPtr& msg)
     ros::Time msg_time = msg->header.stamp;
 
     publish_ros_camera_pose(Twc, msg_time);
-    publish_ros_tf_transform(Twc, world_frame_id, cam_frame_id, msg_time);
     
     publish_ros_tracked_mappoints(mpSLAM->GetTrackedMapPoints(), msg_time);
 }
